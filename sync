@@ -4,18 +4,18 @@ mkdir -p /tmp/rom
 cd /tmp/rom
 
 
-git config --global user.name ZunayedDihan
-git config --global user.email zunayeddihan@gmail.com
+git config --global user.name NicoTurbo494
+git config --global user.email nico876xcv@gmail.com
 
 # Build environment
 git clone https://github.com/akhilnarang/scripts
 bash scripts/setup/android_build_env.sh && rm -rf scripts
 
 # Repo init and sync
-repo init --depth=1 --no-repo-verify -u git://github.com/DerpFest-11/manifest.git -b 11 -g default,-device,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u git://github.com/StagOS/manifest.git -b r11 -g default,-device,-mips,-darwin,-notdefault
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 
 # clone needed repos
-git clone --depth=1 https://github.com/DerpFest-Devices/device_xiaomi_daisy -b 11 device/xiaomi/daisy
-git clone --depth=1 https://github.com/DerpFest-Devices/vendor_xiaomi_daisy -b 11 vendor/xiaomi/daisy
-git clone --depth=1 https://github.com/acras01/kernel_xiaomi_msm8953 -b eleven kernel/xiaomi/msm8953 
+git clone --depth=1 https://github.com/NicoTurbo494/android_device_motorola_sofiar -b StagOS device/motorola/sofiar
+git clone --depth=1 https://github.com/moto-sm6xxx/android_vendor_motorola_sofiar -b android-11 vendor/motorola/sofiar
+git clone --depth=1 https://github.com/Odin1101/Project-Sofia.git -b Upstream-test kernel kernel/motorola/trinket 
